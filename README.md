@@ -2,6 +2,9 @@
 
 ```bash
 nodemon backend
+```
+
+```bash
 nodemon frontend
 ```
 
@@ -9,5 +12,8 @@ nodemon frontend
 
 ```bash
 pm2 start frontend.js
+```
+
+```bash
 pm2 start backend.js
 ```
