@@ -1,7 +1,7 @@
 #!/bin/bash
-PROJECT_NAME="backend"
+PROJECT_NAME="melody"
 HOST="melody-vds"
-TARGET_DIR="/root/backend"
+TARGET_DIR="/root/melody"
 
 echo "Uploading"
 rsync --files-from=rsync-files -r --delete . $HOST:$TARGET_DIR || exit 2
