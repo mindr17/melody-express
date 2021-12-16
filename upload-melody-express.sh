@@ -7,6 +7,7 @@ echo "Uploading"
 rsync --files-from=rsync-files -r --delete . $HOST:$TARGET_DIR || exit 2
 
 echo "Restarting process"
-ssh $HOST pm2 reload server || exit 4
+ssh $HOST pm2 reload frontend || exit 4
+ssh $HOST pm2 reload backend || exit 4
 
 echo "DONE"

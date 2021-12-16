@@ -16,9 +16,3 @@ app.post('/handle', (req, res) => {
 app.listen(3000, () => {
   console.log("Started on http://localhost:3000");
 });
-
-
-
-// app.get('/', (req, res) => {
-//   res.sendFile(`${__dirname}/index.html`);
-// });
