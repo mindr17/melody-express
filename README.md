@@ -1,6 +1,10 @@
 ## Dev:
 
 ```bash
+yarn
+```
+
+```bash
 nodemon backend
 ```
 
@@ -11,9 +15,9 @@ nodemon frontend
 ## Production:
 
 ```bash
-pm2 start frontend.js
+code upload-melody-express.sh
 ```
 
 ```bash
-pm2 start backend.js
+bash upload-melody-express.sh
 ```
