@@ -50,49 +50,50 @@ $(document).ready(function() {
   // Axios POST
   document.querySelector('.order').addEventListener("click", function(e) {
     e.preventDefault();
-    let formData = new FormData(document.querySelector('form'));
-    formData.append('flatNumber', flatNumberToSend);
-    console.log(formData.get("name"));
-    axios({
-      method: 'post',
-      url: 'http://localhost:3000/handle',
-        data: formData,
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-    })
-      .catch(function(error) {
-        console.log(error);
+    let formData = new FormData(document.querySelector('form'));  
+    $.post("http://localhost:3000/handle", 
+      { 
+        "name": formData.get("name"),
+        "phone": formData.get("name"),
+        "flatNumber": flatNumberToSend, 
+      }, (data, status) => {
+
+        if (status === 'success')
+          alert(`Login success\n${data}`);
+        else
+          alert("Login denied");
       });
-    toggleModalFeedback();
+    // axios({
+    //   method: 'post',
+    //   url: 'http://localhost:3000/handle',
+    //     data: formData,
+    //     headers: {
+    //       "Content-type": "application/json; charset=UTF-8"
+    //     }
+    // })
+    //   .catch(function(error) {
+    //     console.log(error);
+    //   });
+    // toggleModalFeedback();
   });
 
-  //   .then(function(response) {
-  //   console.log('Ответ сервера успешно получен!');
-  // })
-      
-  // order.on("click", function(e) {
-  //   // Запрещаем стандартную отправку формы из html
+  // JQ POST
+
+  // document.querySelector('.order').addEventListener("click", function(e) {
   //   e.preventDefault();
-    
-  //   // Получаем данные из формы
-  //   let formData = new FormData(document.querySelector('form'));
-
-  //   // Парсим объект
-  //   let object = {};
-  //   formData.forEach((value, key) => object[key] = value);
-  //   formData = JSON.stringify(object); 
-
-  //   // Отправляем данные на сервер
-  //   let request = new XMLHttpRequest();
-  //   request.open("GET", "php/welcome.php");
-  //   request.send(formData);
-    
-  //   alert(`Вы отправили следующие данные: ${formData}`);
-  //   toggleModalFeedback();
+  //   let fd = new FormData(document.querySelector('form'));
+  //   fd.append('flatNumber', flatNumberToSend);
+  //   $.ajax({
+  //     url: 'http://localhost:3000/handle',
+  //     data: fd,
+  //     processData: false,
+  //     contentType: false,
+  //     type: 'POST',
+  //     success: function(data){
+  //       alert(data);
+  //     }
+  //   });
   // });
-
-
 
   // Этажи
   floorPath.on("mouseover", function() {
@@ -149,3 +150,102 @@ $(document).ready(function() {
 //   toggleModalFeedback();
 // });
   // $('.order').on("click", function(e) {
+
+
+  
+  //   .then(function(response) {
+  //   console.log('Ответ сервера успешно получен!');
+  // })
+      
+  // order.on("click", function(e) {
+  //   // Запрещаем стандартную отправку формы из html
+  //   e.preventDefault();
+    
+  //   // Получаем данные из формы
+  //   let formData = new FormData(document.querySelector('form'));
+
+  //   // Парсим объект
+  //   let object = {};
+  //   formData.forEach((value, key) => object[key] = value);
+  //   formData = JSON.stringify(object); 
+
+  //   // Отправляем данные на сервер
+  //   let request = new XMLHttpRequest();
+  //   request.open("GET", "php/welcome.php");
+  //   request.send(formData);
+    
+  //   alert(`Вы отправили следующие данные: ${formData}`);
+  //   toggleModalFeedback();
+  // });
+
+
+  // FOR PHP
+
+  // Axios POST
+  // document.querySelector('.order').addEventListener("click", function(e) {
+  //   e.preventDefault();
+  //   let formData = new FormData(document.querySelector('form'));
+  //   formData.append('flatNumber', flatNumberToSend);
+  //   console.log(formData.get("name"));
+  //   axios({
+  //     method: 'post',
+  //     url: 'http://localhost:3000/handle',
+  //       data: formData,
+  //       headers: {
+  //         "Content-type": "application/json; charset=UTF-8"
+  //       }
+  //   })
+  //     .catch(function(error) {
+  //       console.log(error);
+  //     });
+  //   // toggleModalFeedback();
+  // });
+
+  // JQ POST
+
+  // document.querySelector('.order').addEventListener("click", function(e) {
+  //   e.preventDefault();
+  //   let fd = new FormData(document.querySelector('form'));
+  //   fd.append('flatNumber', flatNumberToSend);
+  //   $.ajax({
+  //     url: 'http://localhost:3000/handle',
+  //     data: fd,
+  //     processData: false,
+  //     contentType: false,
+  //     type: 'POST',
+  //     success: function(data){
+  //       alert(data);
+  //     }
+  //   });
+  // });
+
+
+  // JQ express
+    // document.querySelector('.order').addEventListener("click", function(e) {
+    // e.preventDefault();
+    // let formData = new FormData(document.querySelector('form'));  
+    // $.post("http://localhost:3000/handle", 
+    //   { 
+    //     "name": formData.get("name"),
+    //     "phone": formData.get("name"),
+    //     "flatNumber": flatNumberToSend, 
+    //   }, (data, status) => {
+
+    //     if (status === 'success')
+    //       alert(`Login success\n${data}`);
+    //     else
+    //       alert("Login denied");
+    //   });
+    // axios({
+    //   method: 'post',
+    //   url: 'http://localhost:3000/handle',
+    //     data: formData,
+    //     headers: {
+    //       "Content-type": "application/json; charset=UTF-8"
+    //     }
+    // })
+    //   .catch(function(error) {
+    //     console.log(error);
+    //   });
+    // toggleModalFeedback();
+  // });
